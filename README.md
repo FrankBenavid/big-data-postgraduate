@@ -33,6 +33,8 @@ Seguir la [guía Windows → WSL 2 → Ubuntu-26.04](docs/instalacion-wsl.md): l
 
 Material de consulta y práctica para acompañar los ejercicios del curso.
 
+- [Guía de línea de comandos de Linux](docs/guia-cli-linux/README.md): se anexó como apoyo para personas con poca experiencia en la CLI de Linux. Incluye navegación, manejo de archivos, `grep`, `wc`, AWK, verificaciones rápidas y un cheat sheet de 100 comandos con sus opciones habituales. Disponible en [PDF](docs/guia-cli-linux/Guia_Linea_de_Comandos.pdf) y [HTML](docs/guia-cli-linux/index.html).
+
 - [Git y GitHub: flujo de trabajo de los ejercicios](docs/guia-git/README.md): guía ilustrada sobre clones, forks, ramas, commits, PR, trabajo compartido y resolución de conflictos. Incluye seis escenarios y un desafío integrador. La [versión HTML](docs/guia-git/index.html) puede abrirse en el navegador después de clonar o descargar el repositorio; sus imágenes están incluidas en la misma carpeta.
 - [Guía práctica de pandas](docs/manual-pandas.md): inspección, filtros, consultas y operaciones sobre los CSV del curso.
 - [Preparación del entorno con WSL y Ubuntu](docs/instalacion-wsl.md): instalación y configuración del equipo de trabajo.

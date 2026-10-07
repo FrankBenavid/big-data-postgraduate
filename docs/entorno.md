@@ -2,6 +2,8 @@
 
 [Instalación completa desde Windows](instalacion-wsl.md) · [Índice](../README.md)
 
+Como apoyo para las personas con poca experiencia en la CLI de Linux, se anexó la [guía de línea de comandos](guia-cli-linux/README.md), con ejemplos de navegación, consulta y verificación de archivos, además de un cheat sheet de 100 comandos y sus opciones habituales.
+
 Todas las instrucciones de esta página se ejecutan en **Ubuntu-26.04 sobre WSL 2**, después de preparar el entorno indicado en la guía. Antes de iniciar:
 
 ```bash
