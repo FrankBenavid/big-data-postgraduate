@@ -22,3 +22,5 @@ Talleres: [E02](../../talleres/E02.md), [E03](../../talleres/E03.md), [P01](../.
 ## Preparación del entorno
 
 Seguir [Windows → WSL 2 → Ubuntu-26.04](../../docs/instalacion-wsl.md). El bloque de instalación cubre distribución, clonación, entorno Python 3.12 y kernel Jupyter; usar las muestras para la primera verificación.
+
+Como material de apoyo para las personas con poca experiencia en la CLI de Linux, se anexó la [guía de línea de comandos](../../docs/guia-cli-linux/README.md). Incluye ejercicios de consulta y verificación de archivos y un cheat sheet de 100 comandos con sus opciones habituales.
