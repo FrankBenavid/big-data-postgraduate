@@ -2,7 +2,10 @@ CURSO DE POSTGRADO: BIGDATA, ESPECIALIZACIÓN EN BASES DE DATOS
 Preparado por el PhD Esteban Hernández, CyberColombia
 Programa del 2 de octubre al 7 de noviembre de 2026. 64 horas efectivas de clase en línea. Recesos y almuerzos excluidos.
 
-ENTORNO ÚNICO: WSL 2 + Ubuntu-26.04
+ENTORNO: Python 3.12 y un único .venv por instalación
+Windows: ../docs/instalacion-wsl.md
+Linux/macOS nativo: ../docs/instalacion-linux-macos.md
+Los comandos siguientes muestran la ruta WSL; en Linux/macOS usar $HOME/bigdata como carpeta base.
 Seguir ../docs/instalacion-wsl.md desde PowerShell para instalar WSL y Ubuntu.
 La guía comienza en /mnt/c/Users/TUPTC/bigdata, clona main dentro de big-data-postgraduate y crea .venv en la raíz del repositorio.
 Python 3.12, JDK 21, Jupyter y bibliotecas se instalan dentro de Ubuntu.
@@ -42,6 +45,8 @@ Las muestras IGAC son 5 polígonos por tema y 10 registros de correlación. WoSI
 El manual explica objetivos, tiempos, pasos, criterios, unidades y advertencias de cada ejercicio. Las propiedades del suelo no se convierten automáticamente en recomendaciones de fertilización. Los códigos municipales, los años, la profundidad y la escala condicionan cualquier integración.
 
 PQRS Y NOTEBOOKS
+Preparar las muestras: python 00_datos.py --descargar pqrs
+Verificarlas: python 00_datos.py --verificar pqrs
 Tres muestras reales de 1.000 filas por corte están en data/pqrs_muestras; total 2,235 MB. Los tres completos se descargan con pqrs_descarga.py y suman 1,816 GB. Se conserva una única copia de los completos fuera del paquete; no se duplican en el ZIP.
 Instalar dependencias en el entorno WSL siguiendo ../docs/instalacion-wsl.md.
 python pqrs_talleres.py perfil
