@@ -3305,6 +3305,10 @@
       {
         "type": "p",
         "text": "Preparar muestras desde kit/ con python 00_datos.py --descargar pqrs y python 00_datos.py --verificar pqrs. El grupo descarga tres CSV de 1.000 filas en data/pqrs_muestras y conserva archivos existentes verificados. El descargador pqrs_descarga.py queda para completos en P04. Consultar talleres/P01.md, actividad 0; no agrega otra entrega."
+      },
+      {
+        "type": "p",
+        "text": "Preparación obligatoria antes de P01: desde kit/, con .venv activo, ejecutar python 00_datos.py --descargar pqrs y python 00_datos.py --verificar pqrs. Continuar cuando los tres cortes indiquen coincide. Los archivos existentes correctos se conservan. P03 requiere además DIVIPOLA verificada y el Parquet de P02; P04 descarga completos solo para la prueba de volumen con pqrs_descarga.py. Ver comandos y prerrequisitos en talleres/P01.md."
       }
     ]
   },
@@ -3337,7 +3341,7 @@
       },
       {
         "type": "code",
-        "text": "python pqrs_descarga.py --listar\n# Completo opcional antes de P04:\npython pqrs_descarga.py --descargar 2023_II 2024_I 2024_II"
+        "text": "python 00_datos.py --descargar pqrs\npython 00_datos.py --verificar pqrs"
       },
       {
         "type": "h",
@@ -3388,6 +3392,10 @@
       {
         "type": "p",
         "text": "Desarrollar primero el notebook correspondiente con operaciones pandas explícitas; los comandos del script son referencias de automatización posteriores. Los notebooks generan kit/salidas/pandas/P02 y P03. P03 lee el Parquet de P02 y requiere DIVIPOLA. La firma SHA-256 del notebook P02 compara su CSV ordenado y no equivale a la firma del script."
+      },
+      {
+        "type": "p",
+        "text": "Preparación obligatoria antes de P02: desde kit/, con .venv activo, ejecutar python 00_datos.py --descargar pqrs y python 00_datos.py --verificar pqrs. Continuar cuando los tres cortes indiquen coincide. Los archivos existentes correctos se conservan. P03 requiere además DIVIPOLA verificada y el Parquet de P02; P04 descarga completos solo para la prueba de volumen con pqrs_descarga.py. Ver comandos y prerrequisitos en talleres/P02.md."
       }
     ]
   },
@@ -3420,7 +3428,7 @@
       },
       {
         "type": "code",
-        "text": "python pqrs_descarga.py --listar\n# Completo opcional antes de P04:\npython pqrs_descarga.py --descargar 2023_II 2024_I 2024_II"
+        "text": "python 00_datos.py --descargar pqrs\npython 00_datos.py --verificar pqrs"
       },
       {
         "type": "h",
@@ -3471,6 +3479,10 @@
       {
         "type": "p",
         "text": "Desarrollar primero el notebook correspondiente con operaciones pandas explícitas; los comandos del script son referencias de automatización posteriores. Los notebooks generan kit/salidas/pandas/P02 y P03. P03 lee el Parquet de P02 y requiere DIVIPOLA. La firma SHA-256 del notebook P02 compara su CSV ordenado y no equivale a la firma del script."
+      },
+      {
+        "type": "p",
+        "text": "Preparación obligatoria antes de P03: desde kit/, con .venv activo, ejecutar python 00_datos.py --descargar pqrs y python 00_datos.py --verificar pqrs. Continuar cuando los tres cortes indiquen coincide. Los archivos existentes correctos se conservan. P03 requiere además DIVIPOLA verificada y el Parquet de P02; P04 descarga completos solo para la prueba de volumen con pqrs_descarga.py. Ver comandos y prerrequisitos en talleres/P03.md."
       }
     ]
   },
@@ -3503,7 +3515,7 @@
       },
       {
         "type": "code",
-        "text": "python pqrs_descarga.py --listar\n# Completo opcional antes de P04:\npython pqrs_descarga.py --descargar 2023_II 2024_I 2024_II"
+        "text": "python 00_datos.py --descargar pqrs\npython 00_datos.py --verificar pqrs"
       },
       {
         "type": "h",
@@ -3525,7 +3537,7 @@
       },
       {
         "type": "code",
-        "text": "python pqrs_talleres.py benchmark\npython pqrs_talleres.py formatos --completo --datos data/pqrs_completos\npython pqrs_talleres.py benchmark --completo --repeticiones 3"
+        "text": "python pqrs_talleres.py formatos\npython pqrs_talleres.py benchmark\npython pqrs_talleres.py formatos --completo --datos data/pqrs_completos\npython pqrs_talleres.py benchmark --completo --repeticiones 3"
       },
       {
         "type": "h",
@@ -3550,6 +3562,10 @@
       {
         "type": "p",
         "text": "Cambiar una condición de la consulta, anticipar su efecto y verificar la equivalencia entre implementaciones. Documentar qué campo o metadata adicional permitiría una conclusión más sólida."
+      },
+      {
+        "type": "p",
+        "text": "Preparación obligatoria antes de P04: desde kit/, con .venv activo, ejecutar python 00_datos.py --descargar pqrs y python 00_datos.py --verificar pqrs. Continuar cuando los tres cortes indiquen coincide. Los archivos existentes correctos se conservan. P03 requiere además DIVIPOLA verificada y el Parquet de P02; P04 descarga completos solo para la prueba de volumen con pqrs_descarga.py. Ver comandos y prerrequisitos en talleres/P04.md."
       }
     ]
   },
