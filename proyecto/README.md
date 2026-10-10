@@ -65,3 +65,5 @@ Ejecutar la ruta elegida, no todas las líneas como obligación. Adjuntar por se
 Proyecto e informe: **35 %**. Sustentación individual: **15 %**. Las prácticas previas completan el 50 % restante según el [mapa de evaluación](../docs/mapa-ejercicios.md). No hay un peso adicional por cada notebook.
 
 Dentro de cada entrega: corrección y unidades 30 %, reproducibilidad y trazabilidad 25 %, justificación 25 % y comunicación de límites 20 %. No se penaliza optar por las muestras cuando el equipo no admite los completos; sí se exige declarar el alcance y no extrapolarlo.
+
+Los mapas y controles espaciales se generan con los notebooks GeoPandas/Rasterio de E08, E09 y E11; adjuntar código ejecutado, PNG y controles de CRS, cardinalidad y cobertura.

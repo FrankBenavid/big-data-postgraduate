@@ -37,9 +37,9 @@ source .venv/bin/activate
 jupyter lab soluciones/
 ```
 
-Seleccionar el kernel del entorno `.venv` del curso y ejecutar las celdas en orden. Los notebooks de referencia P01, P02 y P03 son independientes y usan las tres muestras PQRS incluidas; no descargan los completos. Sus rutas se calculan desde el repositorio y sus salidas se guardan en `kit/salidas/soluciones/P01`, `P02` o `P03`. Una reejecución reemplaza las salidas de esa solución.
+Seleccionar el kernel del entorno `.venv` del curso y ejecutar las celdas en orden. Los notebooks de referencia usan las tres muestras PQRS incluidas; no descargan los completos. P03 requiere ejecutar P02 y disponer de DIVIPOLA. P01 declara una ruta WSL editable, desarrolla las operaciones directamente con pandas y guarda sus controles en `kit/salidas/clase2/P01`. P02 y P03 declaran rutas WSL editables y muestran las operaciones con pandas. Guardan sus salidas en `kit/salidas/pandas/P02` o `P03`. Una reejecución reemplaza las salidas de esa solución.
 
-P03 requiere `kit/data/raw/divipola.csv` para completar el control territorial. Si no existe, muestra el control como pendiente y continúa con los demás análisis. Para prepararlo:
+P03 requiere `kit/data/raw/divipola.csv` para completar el control territorial. Si no existe, se detiene con una indicación para preparar el catálogo antes de ejecutar los joins. Para prepararlo:
 
 ```bash
 cd /mnt/c/Users/TUPTC/bigdata

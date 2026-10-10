@@ -1,18 +1,24 @@
-# Clase 09: Analítica y gobernanza
+# Clase 9: Analítica y gobernanza
 
 Preparado por el PhD Esteban Hernández, CyberColombia.
 
-Viernes 30/10/2026. 3 h de clase efectiva.
+Viernes 30/10/2026. 18:00–21:15. 180 minutos efectivos.
 
-| Segmento | Temas y ejercicios |
+**Modalidad:** Demostración guiada por el profesor.
+
+Viernes: explicación y demostraciones guiadas por el profesor, sin entregas ni calificación. El profesor ejecuta, explica y comparte sus archivos de referencia; los estudiantes observan, preguntan y pueden seguir voluntariamente. Sábado: ejecución por los estudiantes, revisión y entrega durante la clase. La evidencia evaluable debe corresponder a su propia ejecución. No se exige una entrega ni trabajo autónomo obligatorio entre ambos encuentros.
+
+E = ejercicio general del curso (E01–E13). P = práctica con datos PQRS (P01–P04); PQRS significa peticiones, quejas, reclamos y sugerencias. El número identifica la actividad, no la sesión. T01 = taller teórico de capacidad; I01 = introducción a eventos NASA.
+
+| Horario | Tema y actividad |
 |---|---|
-| Antes del receso | Métrica, población, tiempo y fuga de información; E12: persistencia, rendimiento y MAE por cultivo |
-| Después del receso | E12: error por cultivo y cobertura; Gobernanza y revisión crítica de índices compuestos; Definición del producto integrador |
+| 18:00–18:30 | Explicación / demostración docente: Métrica, población, tiempo y fuga de información |
+| 18:30–20:00 | Explicación / demostración docente: E12: persistencia, rendimiento y MAE por cultivo |
+| 20:00–20:15 | Coffee break |
+| 20:15–20:30 | Explicación / demostración docente: E12: error por cultivo y cobertura |
+| 20:30–21:00 | Explicación / demostración docente: Gobernanza y revisión crítica de índices compuestos |
+| 21:00–21:15 | Explicación / demostración docente: Definición del producto integrador |
 
-Producto: Evaluación temporal y ficha de gobernanza.
+**Sin entrega el viernes.** El profesor comparte material de referencia. Ejecución y entrega estudiantil: 2026-10-31.
 
-Consultar el [calendario contractual](../../docs/calendario.md). Todas las horas se imparten en línea; el trabajo autónomo es opcional.
-
-Talleres: [E12](../../talleres/E12.md).
-
-[Mapa de ejercicios, prerrequisitos y evaluación](../../docs/mapa-ejercicios.md).
+[Calendario](../../docs/calendario.md) · [Entregas sabatinas](../../docs/entregas-sabados.md) · [Talleres y evaluación](../../docs/mapa-ejercicios.md)

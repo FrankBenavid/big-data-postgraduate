@@ -34,7 +34,7 @@ Los controles siguientes corresponden únicamente al corte fechado suministrado.
 | --- | --- |
 | Portal DANE lento o 403 | Usar ZIP verificado del kit; mantener la descarga manual como procedimiento documentado. |
 | Hash de descarga cambió | Conservar .nueva, comparar con el corte y no mezclar cohortes. |
-| Pocos recursos de RAM | Dos hilos, un departamento y muestras; cerrar QGIS al ejecutar Spark si hace falta. |
+| Pocos recursos de RAM | Dos hilos, un departamento y muestras; cerrar kernels y figuras que no se utilicen al ejecutar Spark. |
 | Ceros en SoilGrids sin NoData | Reportar y separar provisionalmente; no inventar corrección. |
 | Código no encontrado | Registrar anti-join y revisar vigencia/nombre con evidencia. |
 | Java ausente | Instalar JDK 21 dentro de Ubuntu-26.04 según la guía WSL; comprobar antes de E07. |
@@ -54,9 +54,9 @@ Apache Spark 4.0.1, Structured Streaming
 
 [Fuente](<https://spark.apache.org/docs/4.0.1/streaming/apis-on-dataframes-and-datasets.html>)
 
-QGIS, intersección vectorial
+GeoPandas, intersección vectorial
 
-[Fuente](<https://docs.qgis.org/latest/en/docs/user_manual/processing_algs/qgis/vectoroverlay.html>)
+[Fuente](<https://geopandas.org/en/stable/docs/user_guide/set_operations.html>)
 
 ISRIC, propiedades y factores de SoilGrids
 
