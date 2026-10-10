@@ -105,7 +105,7 @@ Los archivos de requisitos son la referencia de versiones. Usar siempre `python 
 Comprobación de importaciones:
 
 ```bash
-python -c "import pandas, numpy, pyarrow, duckdb, polars, rasterio, shapely, pyproj; print('Bibliotecas disponibles')"
+python -c "import pandas, numpy, pyarrow, duckdb, polars, rasterio, shapely, pyproj, geopandas, pyogrio, matplotlib; print('Bibliotecas disponibles')"
 python -c "import duckdb; print(duckdb.sql('SELECT 2 + 2').fetchone())"
 ```
 
@@ -160,20 +160,23 @@ Copiar en el navegador de Windows la URL `http://localhost:8888/lab?token=...` q
 
 Las tres muestras PQRS ya están en el clon. NASA, los archivos agroambientales y los completos PQRS requieren las descargas de [la guía de datos](entorno.md); no iniciar el notebook de eventos hasta disponer de `kit/data/raw/nasa.json`.
 
-## 7. QGIS para la actividad de mapas
+## 7. Mapas en Jupyter con GeoPandas
 
-QGIS es una aplicación de Ubuntu independiente del virtualenv. Para la práctica visual, desde la misma distribución:
+Todos los ejercicios geoespaciales se ejecutan en el mismo `.venv`: GeoPandas y Pyogrio para vectores, Rasterio para ráster y Matplotlib para mapas. Las versiones están fijadas en `kit/requirements.txt`. Esta actividad no necesita una aplicación de escritorio ni WSLg.
 
 ```bash
-sudo apt update
-sudo apt install -y qgis
-qgis --version
-qgis
+cd /mnt/c/Users/TUPTC/bigdata
+cd big-data-postgraduate
+source .venv/bin/activate
+python -m pip install -r kit/requirements.txt -r kit/requirements_notebooks.txt
+python -m pip check
+python -c "import geopandas, pyogrio, rasterio, matplotlib; print('Entorno geoespacial disponible')"
+jupyter lab kit/Notebooks/
 ```
 
-La ventana usa WSLg. Requiere WSL 2 y soporte de aplicaciones gráficas (Windows 11 o Windows 10 build 19044 o posterior). Si el paquete no aparece, revisar los repositorios habilitados de Ubuntu y consultar al docente antes de agregar repositorios de otra versión. Las bibliotecas Python del curso permanecen en `.venv`; no instalar QGIS mediante pip.
+Abrir los notebooks E08, E09 y E11 del [índice](../kit/Notebooks/README.md). Los mapas se muestran en el navegador y se guardan en `kit/salidas/`. Instalar dentro de Ubuntu, sin `sudo pip`; mantener el kernel del curso. La prueba de importaciones no reemplaza la ejecución con los datasets.
 
-[Aplicaciones gráficas Linux con WSLg](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps) · [Paquete QGIS de Ubuntu 26.04](https://packages.ubuntu.com/en/resolute/qgis).
+[Instalación de GeoPandas](https://geopandas.org/en/stable/getting_started/install.html) · [Rasterio y mapas](https://rasterio.readthedocs.io/en/stable/topics/plotting.html).
 
 ## 8. Retomar el trabajo en otra sesión
 

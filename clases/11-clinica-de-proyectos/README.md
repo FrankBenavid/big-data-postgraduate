@@ -2,17 +2,22 @@
 
 Preparado por el PhD Esteban Hernández, CyberColombia.
 
-Viernes 06/11/2026. 3 h de clase efectiva.
+Viernes 06/11/2026. 18:00–21:15. 180 minutos efectivos.
 
-| Segmento | Temas y ejercicios |
+**Modalidad:** Demostración guiada por el profesor.
+
+Viernes: explicación y demostraciones guiadas por el profesor, sin entregas ni calificación. El profesor ejecuta, explica y comparte sus archivos de referencia; los estudiantes observan, preguntan y pueden seguir voluntariamente. Sábado: ejecución por los estudiantes, revisión y entrega durante la clase. La evidencia evaluable debe corresponder a su propia ejecución. No se exige una entrega ni trabajo autónomo obligatorio entre ambos encuentros.
+
+E = ejercicio general del curso (E01–E13). P = práctica con datos PQRS (P01–P04); PQRS significa peticiones, quejas, reclamos y sugerencias. El número identifica la actividad, no la sesión. T01 = taller teórico de capacidad; I01 = introducción a eventos NASA.
+
+| Horario | Tema y actividad |
 |---|---|
-| Antes del receso | Clínica de bloqueos, recursos y calidad; E13: correcciones y validación entre pares |
-| Después del receso | Ensayo de defensa y discusión de límites; Entrega final y organización de sustentaciones |
+| 18:00–18:45 | Clínica de bloqueos, recursos y calidad |
+| 18:45–20:00 | Explicación / demostración docente: E13: profesor demuestra correcciones y validación; discusión de casos |
+| 20:00–20:15 | Coffee break |
+| 20:15–21:00 | Ensayo de defensa y discusión de límites |
+| 21:00–21:15 | Preparación de la entrega del sábado y organización de turnos; sin entrega |
 
-Producto: Producto corregido, informe y ensayo.
+**Sin entrega el viernes.** El profesor comparte material de referencia. Ejecución y entrega estudiantil: 2026-11-07.
 
-Consultar el [calendario contractual](../../docs/calendario.md). Todas las horas se imparten en línea; el trabajo autónomo es opcional.
-
-Talleres: [E13](../../talleres/E13.md).
-
-[Mapa de ejercicios, prerrequisitos y evaluación](../../docs/mapa-ejercicios.md).
+[Calendario](../../docs/calendario.md) · [Entregas sabatinas](../../docs/entregas-sabados.md) · [Talleres y evaluación](../../docs/mapa-ejercicios.md)

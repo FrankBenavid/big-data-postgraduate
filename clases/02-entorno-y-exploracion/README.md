@@ -1,26 +1,34 @@
-# Clase 02: Ingesta y perfilado
+# Clase 2: Ingesta y perfilado
 
 Preparado por el PhD Esteban Hernández, CyberColombia.
 
-Sábado 03/10/2026. 7 h 30 min de clase efectiva.
+Sábado 03/10/2026. 08:00–17:00. 450 minutos efectivos.
 
-| Segmento | Temas y ejercicios |
+**Modalidad:** Actividad estudiantil y entrega en clase.
+
+Viernes: explicación y demostraciones guiadas por el profesor, sin entregas ni calificación. El profesor ejecuta, explica y comparte sus archivos de referencia; los estudiantes observan, preguntan y pueden seguir voluntariamente. Sábado: ejecución por los estudiantes, revisión y entrega durante la clase. La evidencia evaluable debe corresponder a su propia ejecución. No se exige una entrega ni trabajo autónomo obligatorio entre ambos encuentros.
+
+E = ejercicio general del curso (E01–E13). P = práctica con datos PQRS (P01–P04); PQRS significa peticiones, quejas, reclamos y sugerencias. El número identifica la actividad, no la sesión. T01 = taller teórico de capacidad; I01 = introducción a eventos NASA.
+
+| Horario | Tema y actividad |
 |---|---|
-| Mañana · antes del receso | Entorno, estructura y verificación del kit; P01: manifiesto PQRS y lectura de las muestras |
-| Mañana · después del receso | E02: descarga selectiva, SHA-256 y perfil tabular; Tipos, ausencias, unidades y discusión del perfil |
-| Tarde · después del almuerzo y antes del receso | E03: DIVIPOLA y claves territoriales; P01: lectura por bloques y presupuesto de RAM |
-| Tarde · después del receso | Revisión por pares y faltantes territoriales; Contrato inicial y diccionario de variables; Entrega y preparación del siguiente encuentro |
+| 08:00–08:45 | Entorno, estructura y verificación del kit |
+| 08:45–09:30 | P01: manifiesto PQRS y lectura de las muestras |
+| 09:30–09:45 | Receso de la mañana |
+| 09:45–11:15 | E02: descarga selectiva, SHA-256 y perfil tabular |
+| 11:15–12:00 | Tipos, ausencias, unidades y discusión del perfil |
+| 12:00–13:00 | Almuerzo |
+| 13:00–14:30 | E03: DIVIPOLA y claves territoriales |
+| 14:30–15:00 | P01: lectura por bloques y presupuesto de RAM |
+| 15:00–15:15 | Receso de la tarde |
+| 15:15–16:00 | Revisión por pares y faltantes territoriales |
+| 16:00–16:45 | Ficha propia E01/T01, contrato inicial y diccionario de variables |
+| 16:45–17:00 | Entrega y preparación del siguiente encuentro |
 
-Producto: Manifiesto, perfil y claves territoriales.
+**Entrega:** Ficha de problema, presupuesto de recursos, manifiesto, perfil y claves territoriales. Cierre 16:45–17:00.
 
-Consultar el [calendario contractual](../../docs/calendario.md). Todas las horas se imparten en línea; el trabajo autónomo es opcional.
+[Calendario](../../docs/calendario.md) · [Entregas sabatinas](../../docs/entregas-sabados.md) · [Talleres y evaluación](../../docs/mapa-ejercicios.md)
 
-Talleres: [E02](../../talleres/E02.md), [E03](../../talleres/E03.md), [P01](../../talleres/P01.md).
+## Trabajo directo con pandas
 
-[Mapa de ejercicios, prerrequisitos y evaluación](../../docs/mapa-ejercicios.md).
-
-## Preparación del entorno
-
-Seguir [Windows → WSL 2 → Ubuntu-26.04](../../docs/instalacion-wsl.md). El bloque de instalación cubre distribución, clonación, entorno Python 3.12 y kernel Jupyter; usar las muestras para la primera verificación.
-
-Como material de apoyo para las personas con poca experiencia en la CLI de Linux, se anexó la [guía de línea de comandos](../../docs/guia-cli-linux/README.md). Incluye ejercicios de consulta y verificación de archivos y un cheat sheet de 100 comandos con sus opciones habituales.
+Abrir [P01 paso a paso](../../kit/Notebooks/01_Perfil_PQRS.ipynb): rutas visibles, una lectura por CSV, inspección de columnas, faltantes, conversión y verificación antes de repetir por bloques. No importar scripts del curso para producir el perfil. La [solución P01](../../soluciones/P01_solucion.ipynb) mantiene los mismos pasos; las [plantillas pandas](../../ejercicios/README.md) dejan el desarrollo de cada actividad al estudiante.

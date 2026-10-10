@@ -17,7 +17,7 @@ En cada sesión, dentro de Ubuntu:
 
 Las instalaciones de paquetes y herramientas se realizan según la guía WSL.
 Después de descargar las fuentes, ejecutar la ruta del taller correspondiente.
-Orden agroambiental: perfil, calidad, consultas; luego geografia, clima,
+Orden agroambiental: perfil, calidad, consultas; luego geografia, suelo, clima,
 benchmark o modelo según la sesión. Spark por lotes requiere calidad y consultas.
 
 ARCHIVOS
@@ -34,7 +34,7 @@ Para una copia almacenada en Windows, usar su ruta Ubuntu: /mnt/c/Users/TUPTC/bi
 DANE requiere navegador: usar el catálogo vigente, descargar ZIP y guardarlo con los nombres dane_departamentos.zip y dane_municipios.zip. No separar SHP/SHX/DBF/PRJ al extraer.
 
 TAMAÑOS Y EQUIPO
-8 GB de RAM: cerrar aplicaciones y trabajar con un departamento o las muestras incluidas; Spark local[2]. Recomendado: 16 GB RAM y 5 GB libres para este kit y salidas, más espacio para Python, Java, QGIS y Spark. Presupuesto de instalación y entorno completo: 10–15 GB libres. Son estimaciones preventivas, no tamaños medidos de instalación.
+8 GB de RAM: cerrar aplicaciones y trabajar con un departamento o las muestras incluidas; Spark local[2]. Recomendado: 16 GB RAM y 5 GB libres para este kit y salidas, más espacio para Python, Java, GeoPandas y Spark. Presupuesto de instalación y entorno completo: 10–15 GB libres. Son estimaciones preventivas, no tamaños medidos de instalación.
 La descompresión de shapes y los cruces geométricos pueden ocupar mucho más que los ZIP. No descargar el MGN nacional con todos los niveles (el catálogo anuncia aproximadamente 1,5 GB), ni todos los rásteres globales de SoilGrids/CHIRPS.
 
 ALCANCE
@@ -50,7 +50,7 @@ python pqrs_talleres.py calidad
 python pqrs_talleres.py benchmark
 python pqrs_talleres.py eventos
 La calidad se ejecuta después de formatos. El benchmark usa la proyección CSV de 16 campos y sus dos versiones Parquet, con la misma consulta y universo de filas. Los originales conservan 38 campos.
-Notebooks/: cuatro guías ejecutadas con muestras, incluyendo un benchmark y una reproducción NASA finita. Seleccionar el kernel del mismo entorno.
+Notebooks/: cuatro guías PQRS/eventos y tres guías geoespaciales E08, E09 y E11, ejecutables con los datos del kit. Seleccionar el kernel del mismo entorno.
 
 CALENDARIO
 Fechas, temas, horas y recesos en ../docs/calendario_contractual.json y ../docs/calendario.md. Los viernes 16, 23 y 30 de octubre y 6 de noviembre cierran a las 21:15. Sustentación final el 7 de noviembre, 08:00–16:30. El trabajo autónomo es opcional y no reemplaza horas de docencia.

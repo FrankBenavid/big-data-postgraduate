@@ -2,19 +2,25 @@
 
 Preparado por el PhD Esteban Hernández, CyberColombia.
 
-Sábado 07/11/2026. 7 h de clase efectiva.
+Sábado 07/11/2026. 08:00–16:30. 420 minutos efectivos.
 
-| Segmento | Temas y ejercicios |
+**Modalidad:** Actividad estudiantil y entrega en clase.
+
+Viernes: explicación y demostraciones guiadas por el profesor, sin entregas ni calificación. El profesor ejecuta, explica y comparte sus archivos de referencia; los estudiantes observan, preguntan y pueden seguir voluntariamente. Sábado: ejecución por los estudiantes, revisión y entrega durante la clase. La evidencia evaluable debe corresponder a su propia ejecución. No se exige una entrega ni trabajo autónomo obligatorio entre ambos encuentros.
+
+E = ejercicio general del curso (E01–E13). P = práctica con datos PQRS (P01–P04); PQRS significa peticiones, quejas, reclamos y sugerencias. El número identifica la actividad, no la sesión. T01 = taller teórico de capacidad; I01 = introducción a eventos NASA.
+
+| Horario | Tema y actividad |
 |---|---|
-| Mañana · antes del receso | Sustentaciones y preguntas técnicas |
-| Mañana · después del receso | Sustentaciones y discusión de resultados |
-| Tarde · después del almuerzo y antes del receso | Sustentaciones restantes y auditoría final |
-| Tarde · después del receso | Retroalimentación y evaluación individual; Acta, entregas verificables y cierre contractual |
+| 08:00–09:30 | Sustentaciones y preguntas técnicas |
+| 09:30–09:45 | Receso de la mañana |
+| 09:45–12:00 | Sustentaciones y discusión de resultados |
+| 12:00–13:00 | Almuerzo |
+| 13:00–15:00 | Sustentaciones restantes y auditoría final |
+| 15:00–15:15 | Receso de la tarde |
+| 15:15–16:00 | Retroalimentación y evaluación individual; completar correcciones finales |
+| 16:00–16:30 | Acta, entregas verificables y cierre contractual |
 
-Producto: Producto final, sustentación y acta de cierre.
+**Entrega:** Paquete final corregido, informe de 8–12 páginas y registro de defensa individual. Cierre 16:00–16:30.
 
-Consultar el [calendario contractual](../../docs/calendario.md). Todas las horas se imparten en línea; el trabajo autónomo es opcional.
-
-Talleres: [E13](../../talleres/E13.md).
-
-[Mapa de ejercicios, prerrequisitos y evaluación](../../docs/mapa-ejercicios.md).
+[Calendario](../../docs/calendario.md) · [Entregas sabatinas](../../docs/entregas-sabados.md) · [Talleres y evaluación](../../docs/mapa-ejercicios.md)

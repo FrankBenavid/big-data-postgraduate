@@ -36,7 +36,7 @@ Las URLs exactas están en fuentes.json y en el [catálogo de fuentes](datasets.
 
 - Abrir el catálogo vigente y buscar MGN2025-Nivel. Seleccionar los enlaces de Nivel Departamento y Nivel Municipio en formato Shapefile.
 - Guardar los ZIP sin modificar como dane_departamentos.zip y dane_municipios.zip dentro de data/raw. Tamaños observados: 12,52 MB y 71,58 MB. Las etiquetas del catálogo pueden diferir del tamaño descargado.
-- Verificar con 00_datos.py --verificar. Para QGIS, extraer cada ZIP a una carpeta propia y abrir su .shp. Conservar .shx, .dbf y .prj en la misma carpeta.
+- Verificar con 00_datos.py --verificar. GeoPandas lee los ZIP DANE con read_file y el prefijo zip://. Si se extraen, conservar .shp, .shx, .dbf y .prj juntos y comprobar el CRS antes de reproyectar.
 - Si el portal responde 403 o la descarga tarda, usar la copia docente. No insistir con múltiples descargas. El enlace antiguo del MGN devolvió 404 y no debe quedar como dependencia del taller.
 
 No descargar MGN2025_00_COLOMBIA.zip con todos los niveles: el catálogo anuncia aproximadamente 1,5 GB y contiene detalle que no requiere el curso. Los dos ZIP seleccionados incluyen exclusivamente los niveles necesarios. No se reemplazan polígonos por puntos de DIVIPOLA para evitar esa descarga.
@@ -91,3 +91,7 @@ Abrir `Notebooks/` y seleccionar el kernel BigData de WSL. Las dependencias y he
 ## Rutas de los scripts
 
 Los scripts vigentes resuelven sus fuentes y salidas a partir de su archivo dentro de `kit/`. En PQRS, `--config`, `--datos` y `--salidas` relativos también se interpretan desde `kit/`; las rutas absolutas se respetan. El descargador general interpreta `--respaldo` desde el directorio actual: usar una ruta absoluta para una copia externa. No escribir rutas de otra máquina dentro de los scripts.
+
+## Ejecución geoespacial
+
+Usar el único entorno WSL del curso con GeoPandas, Pyogrio, Rasterio y Matplotlib. Desde `kit/`, `python talleres.py geografia` ejecuta E08, `python talleres.py suelo` prepara E09 y `python talleres.py clima` prepara E11. Los mapas se generan en Jupyter o como PNG en `salidas/`. `python talleres.py clima_suelo` reúne ambos informes para compatibilidad y requiere las cuatro fuentes SoilGrids, WoSIS, NASA y CHIRPS. Consultar el [índice de notebooks](../kit/Notebooks/README.md).
