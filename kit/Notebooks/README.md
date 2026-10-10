@@ -4,7 +4,7 @@ Preparado por el PhD Esteban Hernández, CyberColombia.
 
 P01: 3 de octubre. P02: 9 de octubre. P03: 10 de octubre. P04: 23 de octubre. I01: 24 de octubre. Los notebooks acompañan los talleres y comparten las horas de clase; no añaden entregas obligatorias.
 
-Preparar WSL, Ubuntu-26.04 y el único entorno `.venv` de la raíz según [la guía de instalación](../../docs/instalacion-wsl.md). Abrir desde `kit/` o `kit/Notebooks/`, usar el mismo entorno Python y ejecutar en orden. Los prerrequisitos son explícitos: P03 lee el Parquet producido por P02 y requiere DIVIPOLA; no ejecuta P02 ni descarga fuentes silenciosamente.
+Preparar el único `.venv` de la raíz según la guía [Windows/WSL](../../docs/instalacion-wsl.md) o [Linux/macOS](../../docs/instalacion-linux-macos.md). En instalación nativa, adaptar `repositorio` o `REPO` a la ruta real como indica esa guía. Abrir desde `kit/` o `kit/Notebooks/`, usar el mismo entorno Python y ejecutar en orden. Los prerrequisitos son explícitos: P03 lee el Parquet producido por P02 y requiere DIVIPOLA; no ejecuta P02 ni descarga fuentes silenciosamente.
 
 Los notebooks históricos se conservan en `supersalud/`, con su procedencia y limitaciones, y no son la guía de ejecución actual.
 
@@ -21,11 +21,11 @@ Como referencia durante las prácticas, consultar la [guía práctica de pandas]
 
 El notebook 04 se usa en dos momentos: detenerse tras el benchmark en clase 7 y ejecutar la sección de eventos en clase 8. Los eventos requieren `data/raw/nasa.json`, que se descarga desde el manifiesto agroambiental. Los notebooks no incorporan descargas de 1,816 GB como paso automático.
 
-Seleccionar el kernel **BigData · WSL Ubuntu 26.04 · Python 3.12**. Todas las dependencias se instalan en Ubuntu mediante el procedimiento de esa guía.
+Seleccionar **BigData · WSL Ubuntu 26.04 · Python 3.12** en Windows/WSL o **BigData · Linux/macOS · Python 3.12** en instalación nativa. Instalar las dependencias mediante la guía correspondiente.
 
 ## Ruta y rama del curso
 
-El clon se realiza siempre desde `main` en `/mnt/c/Users/TUPTC/bigdata/big-data-postgraduate`. El entorno está en `.venv` de la raíz; los ejercicios se ejecutan desde `kit/`, dentro de Ubuntu-26.04 sobre WSL. Para actualizar, situarse en `main` y ejecutar `git pull --ff-only origin main` después de revisar los cambios locales.
+El clon se realiza desde `main`: `/mnt/c/Users/TUPTC/bigdata/big-data-postgraduate` en WSL o `~/bigdata/big-data-postgraduate` en Linux/macOS. El entorno está en `.venv` de la raíz; adaptar las rutas explícitas del notebook al clon local. Para actualizar, situarse en `main` y ejecutar `git pull --ff-only origin main` después de revisar los cambios locales.
 
 ## Ejercicios geoespaciales
 

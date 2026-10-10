@@ -2,7 +2,7 @@
 
 [Índice](../README.md) · [Datos y ejecución](entorno.md) · [Notebooks](../kit/Notebooks/README.md)
 
-Este es el entorno base para todas las instrucciones vigentes del curso. PowerShell se usa para instalar y administrar WSL; Python, Git, Java, bibliotecas, Jupyter y las prácticas se ejecutan **dentro de Ubuntu-26.04**. Las instrucciones antiguas de los anexos históricos no sustituyen esta guía.
+Esta guía es la instalación de referencia para Windows. Para equipos Linux o macOS, seguir la [instalación nativa](instalacion-linux-macos.md). PowerShell se usa para instalar y administrar WSL; Python, Git, Java, bibliotecas, Jupyter y las prácticas se ejecutan **dentro de Ubuntu-26.04**. Las instrucciones antiguas de los anexos históricos no sustituyen esta guía.
 
 ## 1. Instalar WSL desde Windows
 
@@ -152,13 +152,12 @@ En Ubuntu, con el entorno activo:
 ```bash
 cd /mnt/c/Users/TUPTC/bigdata
 cd big-data-postgraduate/kit
-python pqrs_talleres.py perfil
 python -m jupyter lab --no-browser --ip=127.0.0.1
 ```
 
 Copiar en el navegador de Windows la URL `http://localhost:8888/lab?token=...` que muestre Jupyter, usando el puerto y token reales. Abrir `Notebooks/01_Perfil_PQRS.ipynb` y seleccionar **BigData · WSL Ubuntu 26.04 · Python 3.12**. El navegador se abre en Windows, pero el kernel ejecuta en Ubuntu. Detener Jupyter con `Ctrl+C` al terminar. [Acceso desde Windows mediante localhost](https://learn.microsoft.com/en-us/windows/wsl/networking).
 
-Las tres muestras PQRS ya están en el clon. NASA, los archivos agroambientales y los completos PQRS requieren las descargas de [la guía de datos](entorno.md); no iniciar el notebook de eventos hasta disponer de `kit/data/raw/nasa.json`.
+Las tres muestras PQRS ya están en el clon; desde `kit/`, prepararlas con `python 00_datos.py --descargar pqrs` y comprobarlas con `python 00_datos.py --verificar pqrs`. NASA, los archivos agroambientales y los completos PQRS requieren las descargas de [la guía de datos](entorno.md); no iniciar el notebook de eventos hasta disponer de `kit/data/raw/nasa.json`.
 
 ## 7. Mapas en Jupyter con GeoPandas
 
