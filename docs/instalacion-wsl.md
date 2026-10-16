@@ -42,6 +42,8 @@ La columna `VERSION` debe mostrar `2`. Si muestra `1`, salir de Ubuntu y ejecuta
 
 ## 2. Entrar a la carpeta base y clonar
 
+`TUPTC` es el usuario Windows del ejemplo: sustituirlo por el nombre real en todas las rutas `/mnt/c/Users/TUPTC/`. No reutilizar esta carpeta para crear un entorno Windows nativo; esa alternativa necesita otro clon.
+
 **Todos los comandos siguientes son Bash, dentro de Ubuntu.** Confirmar la distribución y preparar la carpeta base del curso:
 
 ```bash
@@ -80,15 +82,19 @@ uv --version
 uv python install 3.12
 cd /mnt/c/Users/TUPTC/bigdata
 cd big-data-postgraduate
-uv venv --python 3.12 --seed .venv
+if [ ! -e .venv ]; then
+    uv venv --python 3.12 --seed .venv
+fi
 source .venv/bin/activate
 python --version
-python -c 'import sys; print(sys.executable)'
+python -c 'import sys, platform; assert sys.version_info[:2] == (3, 12); assert sys.prefix != sys.base_prefix; print(sys.executable, platform.machine())'
 ```
 
-Debe aparecer Python `3.12.x` y un ejecutable dentro de `/mnt/c/Users/TUPTC/bigdata/big-data-postgraduate/.venv/`. Se crea **un solo entorno**, en la raíz del repositorio. No crear otro `.venv` dentro de `kit/`. Si ya existe el entorno, activar el existente en lugar de recrearlo.
+Debe aparecer Python `3.12.x` y un ejecutable dentro de `/mnt/c/Users/TUPTC/bigdata/big-data-postgraduate/.venv/`. Se crea **un entorno base CPU**, en la raíz del repositorio. No crear otro `.venv` dentro de `kit/`. Si ya existe el entorno, activar el existente en lugar de recrearlo.
 
 [Ubuntu 26.04: versión de Python](https://documentation.ubuntu.com/release-notes/26.04/summary-for-lts-users/) · [Instalador oficial de uv](https://docs.astral.sh/uv/getting-started/installation/) · [Instalación de versiones de Python con uv](https://docs.astral.sh/uv/guides/install-python/).
+
+El bloque anterior conserva un entorno existente. Si la comprobación de Python falla o la carpeta pertenece a otro sistema, no instalar paquetes encima; seguir la [reconstrucción del entorno](entornos-virtuales.md#5-retomar-o-reconstruir). La única ampliación con entorno separado es GPU; las clases ordinarias siguen usando `.venv`.
 
 ## 4. Instalar las bibliotecas y Jupyter
 
@@ -111,6 +117,8 @@ python -c "import duckdb; print(duckdb.sql('SELECT 2 + 2').fetchone())"
 
 La consulta debe devolver `(4,)`.
 
+La instalación anterior es **CPU**. La [ampliación opcional de Polars GPU](polars-gpu.md) se realiza aparte: controlador NVIDIA en Windows, CUDA Toolkit compatible dentro de WSL 2 y paquetes en `.venv-gpu`. No instalar el controlador Linux dentro de WSL ni ejecutar los requisitos GPU antes de preparar esos prerrequisitos.
+
 ## 5. Configurar Java y Spark
 
 El paquete `openjdk-21-jdk` del paso 2 incluye `java` y `javac`. Guardar la configuración en un archivo del usuario y cargarlo desde Bash:
@@ -127,6 +135,7 @@ java -version
 javac -version
 python -m pip install -r kit/requirements_spark.txt
 python -m pip check
+export PYSPARK_PYTHON="$VIRTUAL_ENV/bin/python"
 ```
 
 Prueba mínima, antes de procesar datos:
@@ -192,6 +201,7 @@ cd /mnt/c/Users/TUPTC/bigdata
 cd big-data-postgraduate
 source .venv/bin/activate
 source "$HOME/.config/bigdata/entorno.sh"
+export PYSPARK_PYTHON="$VIRTUAL_ENV/bin/python"
 git status --short
 # Si no hay cambios locales pendientes:
 git switch main

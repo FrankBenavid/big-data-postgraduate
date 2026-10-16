@@ -10,10 +10,25 @@ El curso emplea dos dominios abiertos: PQRS/PQRD de Supersalud y datos agroambie
 
 ## Preparar el equipo
 
-Elegir la guía del sistema operativo. Ambas preparan Python 3.12, un único `.venv`, JDK 21, Spark, Jupyter y las bibliotecas fijadas del curso:
+Antes de los talleres, preparar el ambiente siguiendo la guía del sistema operativo. Ambas preparan Git, Python 3.12, un `.venv` base CPU, JDK Java 21, Spark, Jupyter y las bibliotecas fijadas del curso:
 
 - [Windows: WSL 2 con Ubuntu-26.04](docs/instalacion-wsl.md).
-- [Linux y macOS: instalación nativa](docs/instalacion-linux-macos.md), con Git, Python, Java y adaptación de las rutas de los notebooks.
+- [Linux: instalación nativa](docs/instalacion-linux-macos.md#linux), con paquetes para Ubuntu/Debian y Fedora.
+- [macOS: Apple Silicon M1, M2, M3, M4 e Intel](docs/instalacion-linux-macos.md#macos), con Homebrew y `brew install --cask temurin@21` para instalar el JDK 21 en ambas arquitecturas.
+
+- [Entornos virtuales por plataforma](docs/entornos-virtuales.md): creación, activación, kernels y alternativa Windows nativa para las guías rápidas.
+- [Polars con GPU NVIDIA, instalación opcional independiente](docs/polars-gpu.md): prerrequisitos del sistema, CUDA y entorno GPU. No forma parte de la instalación base.
+
+### Instrucciones generales de preparación
+
+1. **Revisar el equipo:** identificar sistema operativo y arquitectura, disponer de conexión a Internet y permisos de administrador para instalar herramientas. Planificar 16 GB de RAM y 20 GB libres; con 8 GB, comenzar con muestras y Spark `local[2]`.
+2. **Elegir dónde ejecutar:** en Windows, instalar WSL 2 y trabajar dentro de Ubuntu; en Linux y macOS, usar la terminal nativa. Los comandos PowerShell de la guía WSL se ejecutan en Windows y los bloques Bash, dentro de Ubuntu.
+3. **Instalar herramientas y clonar el curso:** seguir la guía elegida para instalar Git y JDK 21, clonar `main` y preparar Python 3.12 mediante `uv`, sin reemplazar el Python del sistema.
+4. **Crear el entorno base CPU:** mantener `.venv` en la raíz del repositorio e instalar allí los requisitos base, PQRS y notebooks; Spark se añade en su etapa. La ampliación GPU usa `.venv-gpu` según su guía independiente. No compartir ese entorno entre Windows, WSL, Linux, macOS o arquitecturas distintas.
+5. **Configurar Java y Jupyter:** establecer `JAVA_HOME`, comprobar `java -version` y `javac -version` (ambos 21), registrar el kernel y seleccionarlo en los notebooks. En macOS, verificar además que Java corresponda a ARM64 o Intel según el equipo.
+6. **Verificar antes del taller:** comprobar Python 3.12, ejecutar `python -m pip check`, realizar la prueba de Spark de la guía y abrir un notebook con el kernel del curso. Adaptar las rutas y preparar los datos según [datos y ejecución](docs/entorno.md).
+
+Al retomar el trabajo, activar `.venv` y cargar `~/.config/bigdata/entorno.sh` antes de iniciar Jupyter. Las guías incluyen los comandos completos y la solución de problemas frecuentes.
 
 ## Encuentros
 
@@ -40,14 +55,18 @@ Material de consulta y práctica para acompañar los ejercicios del curso.
 
 - [Git y GitHub: flujo de trabajo de los ejercicios](docs/guia-git/README.md): guía ilustrada sobre clones, forks, ramas, commits, PR, trabajo compartido y resolución de conflictos. Incluye seis escenarios y un desafío integrador. La [versión HTML](docs/guia-git/index.html) puede abrirse en el navegador después de clonar o descargar el repositorio; sus imágenes están incluidas en la misma carpeta.
 - [Guía práctica de pandas](docs/manual-pandas.md): inspección, filtros, consultas y operaciones sobre los CSV del curso.
+- [Guía rápida de Polars](docs/manual-polars.md): ejemplos mínimos, equivalencias con pandas y ventajas de las expresiones y la ejecución diferida.
+- [Polars con GPU NVIDIA: instalación y ejecución CPU/GPU](docs/polars-gpu.md): **solo para equipos con GPU NVIDIA compatible en Linux o WSL 2**; requiere controlador y CUDA Toolkit compatibles. Incluye entorno GPU independiente, selección del motor y regreso a CPU. Es opcional; los talleres funcionan en CPU.
+- [Guía rápida de DuckDB](docs/manual-duckdb.md): ejemplos mínimos de SQL, comparaciones con pandas y consultas sobre archivos Parquet.
+- [Guía práctica de GeoPandas y mapas de Colombia](docs/manual-geopandas.md): departamentos, ciudades, municipios y territorios especiales; resaltado de regiones y consultas de quejas por meses y edades representadas en mapas.
 - Preparación del entorno: [Windows/WSL](docs/instalacion-wsl.md) o [Linux/macOS](docs/instalacion-linux-macos.md).
 
 ## Recursos actuales
 
-- [Tres ejercicios de pandas para cuatro horas](ejercicios/README.md), con enunciados y plantillas en `ejercicios/` y entrega de los notebooks resueltos en `soluciones/`.
+- [Ejercicios de pandas y Polars](ejercicios/README.md): PD01–PD03 (cuatro horas) y PD04–PD05 (ocho horas), con enunciados y plantillas en `ejercicios/` y entrega de los notebooks resueltos en `soluciones/`.
 - [Soluciones comentadas en Jupyter de P01, P02 y P03](soluciones/README.md).
 - [Índice completo de talleres](talleres/README.md), con descargas, tamaños y criterios.
-- [Kit base](kit/LEEME.txt), [manifesto agroambiental](kit/fuentes.json) y [manifiesto PQRS](kit/pqrs_fuentes.json).
+- [Kit base](kit/README.md), [manifesto agroambiental](kit/fuentes.json) y [manifiesto PQRS](kit/pqrs_fuentes.json).
 - [Descargador PQRS](kit/pqrs_descarga.py) y [prácticas reproducibles PQRS](kit/pqrs_talleres.py).
 - [Proyecto y evaluación por dominio](proyecto/README.md) y [mapa de ejercicios y prerrequisitos](docs/mapa-ejercicios.md).
 - [Notebooks actuales](kit/Notebooks/README.md) y [notebooks históricos Supersalud](supersalud/README.md), preservados como referencia.

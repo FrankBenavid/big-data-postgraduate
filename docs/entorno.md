@@ -4,7 +4,7 @@
 
 Como apoyo para las personas con poca experiencia en la CLI de Linux, se anexó la [guía de línea de comandos](guia-cli-linux/README.md), con ejemplos de navegación, consulta y verificación de archivos, además de un cheat sheet de 100 comandos y sus opciones habituales.
 
-Preparar el entorno de la guía correspondiente al sistema. Los ejemplos de navegación siguientes usan la ruta Windows/WSL; en Linux/macOS sustituir la carpeta base por `"$HOME/bigdata"`. Mantener los comandos relativos, los requisitos y el `.venv` único. Antes de iniciar en WSL:
+Preparar el entorno de la guía correspondiente al sistema. Los ejemplos de navegación siguientes usan la ruta Windows/WSL; en Linux/macOS sustituir la carpeta base por `"$HOME/bigdata"`. Mantener los comandos relativos, los requisitos y el `.venv` base CPU. Antes de iniciar en WSL:
 
 ```bash
 cd /mnt/c/Users/TUPTC/bigdata
@@ -14,6 +14,12 @@ cd kit
 ```
 
 El clon no incluye los originales agroambientales ni los completos PQRS; `--verificar` requiere obtener antes todas las fuentes correspondientes.
+
+## Polars con GPU (opcional)
+
+La instalación NVIDIA tiene una [guía independiente](polars-gpu.md): primero se preparan el controlador y CUDA Toolkit según Linux o WSL 2, y después los paquetes Python en `.venv-gpu`. No ejecutar esa instalación como parte de la preparación CPU. En macOS se utiliza CPU.
+
+Consultar [entornos virtuales por plataforma](entornos-virtuales.md) para crear, activar y verificar `.venv`, así como para la alternativa Windows nativa de las guías rápidas.
 
 ## Tres rutas para obtener los datos
 
@@ -94,4 +100,6 @@ Los scripts vigentes resuelven sus fuentes y salidas a partir de su archivo dent
 
 ## Ejecución geoespacial
 
-Usar el único entorno `.venv` del curso con GeoPandas, Pyogrio, Rasterio y Matplotlib. Desde `kit/`, `python talleres.py geografia` ejecuta E08, `python talleres.py suelo` prepara E09 y `python talleres.py clima` prepara E11. Los mapas se generan en Jupyter o como PNG en `salidas/`. `python talleres.py clima_suelo` reúne ambos informes para compatibilidad y requiere las cuatro fuentes SoilGrids, WoSIS, NASA y CHIRPS. Consultar el [índice de notebooks](../kit/Notebooks/README.md).
+Consultar la [guía práctica de GeoPandas](manual-geopandas.md) para mapas de Colombia, resaltado de municipios y consultas tabulares por meses y edades antes de unirlas a las geometrías.
+
+Usar el entorno base CPU `.venv` del curso con GeoPandas, Pyogrio, Rasterio y Matplotlib. Desde `kit/`, `python talleres.py geografia` ejecuta E08, `python talleres.py suelo` prepara E09 y `python talleres.py clima` prepara E11. Los mapas se generan en Jupyter o como PNG en `salidas/`. `python talleres.py clima_suelo` reúne ambos informes para compatibilidad y requiere las cuatro fuentes SoilGrids, WoSIS, NASA y CHIRPS. Consultar el [índice de notebooks](../kit/Notebooks/README.md).

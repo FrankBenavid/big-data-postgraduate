@@ -101,7 +101,7 @@ Los valores anteriores corresponden a entradas concretas y no son umbrales de ca
 
 [Fuente](<https://docs.pola.rs/api/python/stable/reference/api/polars.scan_parquet.html>)
 
-Las presentes guías usan Polars 1.35.2 y DuckDB 1.4.1, probados en CPU. Las alternativas gestionadas, Zarr, Dask y GPU son material conceptual de ampliación. Sus requerimientos se investigan cuando una necesidad medida los justifica.
+Las presentes guías usan Polars 1.35.2 y DuckDB 1.4.1, probados en CPU. Las alternativas gestionadas, Zarr y Dask son material conceptual de ampliación. GPU dispone de una [instalación opcional independiente](polars-gpu.md), con prerrequisitos NVIDIA y CUDA; su ejecución debe validarse en hardware compatible y no es obligatoria para los talleres.
 
 ## Correcciones editoriales y curriculares
 

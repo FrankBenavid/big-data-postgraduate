@@ -22,3 +22,7 @@ E = ejercicio general del curso (E01–E13). P = práctica con datos PQRS (P01�
 **Sin entrega el viernes.** El profesor comparte material de referencia. Ejecución y entrega estudiantil: 2026-10-17.
 
 [Calendario](../../docs/calendario.md) · [Entregas sabatinas](../../docs/entregas-sabados.md) · [Talleres y evaluación](../../docs/mapa-ejercicios.md)
+
+## Notebooks de la clase
+
+Desarrollar [05 Spark: lectura y agregación](../../kit/Notebooks/05_Spark_lectura_y_agregacion.ipynb). Antes del receso: lectura CSV, conversión, escritura Parquet, transformaciones y acciones. Después del receso: plan, agregación, medición de una acción y equivalencia con DuckDB. Preparar EVA y DIVIPOLA con los comandos del notebook; sus productos quedan en `kit/salidas/E07`.
