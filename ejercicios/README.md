@@ -127,3 +127,27 @@ Se validaron formato de notebook, sintaxis de celdas y ejemplos, enlaces locales
 - Para Boyacá en 2020, 152 análisis y 48 grupos municipales: mismos conteos y medias equivalentes en pandas y Polars, con tolerancia absoluta de 0,000001.
 
 La comprobación temporal no se incorpora como solución del alumno y no sustituye sus controles, decisiones, conclusiones ni mediciones completas. Los conteos dependen de las copias y reglas utilizadas. Esta validación no certifica una instalación Windows/WSL ni un ganador de rendimiento.
+
+
+## PD06 · PQRS completas: agregaciones en Polars CPU y GPU
+
+[Plantilla individual PD06](PD06_PQRS_agregaciones_CPU_GPU.ipynb).
+Copiar a `soluciones/` y desarrollar allí, con el kernel GPU ya verificado.
+No contiene la solución de las consultas; deja celdas explícitas por completar.
+
+1. Este ejercicio histórico conserva sus tres cortes originales. Desde la raíz, ejecutar
+   `python kit/pqrs_descarga.py --descargar 2023_II 2024_I 2024_II` y
+   `python kit/pqrs_descarga.py --verificar 2023_II 2024_I 2024_II`.
+2. Leer y convertir CSV a Parquet con Polars; conservar las 2.444.766 filas.
+3. Buscar departamentos con más quejas según edad, `patologia_1`,
+   `cod_motesp`, `motivo_especifico` y `pqr_canal`, combinando todos los periodos.
+4. Añadir año y mes numéricos para estudiar la evolución cronológica ascendente
+   de las mismas combinaciones, sin ordenar meses como texto.
+5. Ejecutar las mismas agregaciones y ordenaciones con Polars CPU y GPU,
+   comprobar equivalencia y medir calentamiento más tres repeticiones por motor.
+
+El benchmark incluye lectura Parquet, agregación, ordenamiento y resultado CPU;
+excluye preparación, controles y exportación. La plantilla facilita el reloj y
+el resumen; las consultas y el bucle de repeticiones los desarrolla el estudiante.
+Los resultados van en `kit/salidas/soluciones/PD06/`. No exige pandas ni añade
+una ponderación o fecha de entrega. La plantilla se entrega **sin ejecutar**.

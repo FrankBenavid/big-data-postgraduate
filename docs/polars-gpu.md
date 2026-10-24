@@ -171,6 +171,18 @@ Seleccionar el kernel CPU del curso. Activar otro entorno en una terminal no cam
 
 ## 9. Problemas frecuentes y alcance de validación
 
+### Aplicación a PQRS: P04
+
+Después de verificar la suma GPU de esta guía, abrir
+[04_Rendimiento_y_eventos_update1.ipynb](../kit/Notebooks/04_Rendimiento_y_eventos_update1.ipynb).
+Su segunda parte descarga o reutiliza tres CSV completos PQRS verificados,
+convierte y comprueba los tres Parquet dentro del notebook y compara las mismas
+agregaciones con pandas CPU, Polars CPU y Polars GPU. Empezar en L1;
+no requiere los productos de P02. Revisar [P04](../talleres/P04.md) para el flujo
+y las fronteras de medición. No instala dependencias y exige
+`raise_on_fail=True` para GPU. Registrar la combinación instalada con la sección 8.
+El laboratorio se entrega sin ejecutar; no se certifica rendimiento GPU.
+
 | Síntoma | Acción |
 |---|---|
 | `nvidia-smi` falla | Revisar controlador y visibilidad de la GPU; en WSL, empezar por Windows y WSL 2. |
