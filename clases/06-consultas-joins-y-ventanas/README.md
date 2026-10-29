@@ -26,3 +26,7 @@ E = ejercicio general del curso (E01–E13). P = práctica con datos PQRS (P01�
 [Calendario](../../docs/calendario.md) · [Entregas sabatinas](../../docs/entregas-sabados.md) · [Talleres y evaluación](../../docs/mapa-ejercicios.md)
 
 Las actividades geoespaciales E08, E09 y E11 se desarrollan con GeoPandas, Rasterio y Matplotlib en Jupyter. Consultar los [notebooks y sus requisitos](../../kit/Notebooks/README.md#ejercicios-geoespaciales).
+
+## Notebooks de la clase
+
+Reejecutar [05 Spark](../../kit/Notebooks/05_Spark_lectura_y_agregacion.ipynb) y continuar con [06 Joins y ventanas](../../kit/Notebooks/06_Spark_joins_y_ventanas.ipynb). Antes del receso de la mañana: claves, cardinalidad y joins; después: planes, broadcast, ranking y particiones. En la tarde, antes del receso: [E08](../../kit/Notebooks/E08_Geoespacial.ipynb); después: [E09](../../kit/Notebooks/E09_Geoespacial.ipynb) y entrega integrada. El notebook 06 lee explícitamente los productos del 05.

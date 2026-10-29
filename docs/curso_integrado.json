@@ -1706,7 +1706,7 @@
       },
       {
         "type": "p",
-        "text": "Seleccionar el kernel del mismo entorno Python. Los cuatro notebooks PQRS/eventos y los tres geoespaciales E08, E09 y E11 usan rutas relativas y datos abiertos del kit. Los notebooks históricos de Supersalud se conservan por procedencia y no se ejecutan de corrido como guía vigente. Las rutas /content, desactivación TLS, GPU y funciones de correo no forman parte de la práctica actual."
+        "text": "Seleccionar el kernel del mismo entorno Python. Los cuatro notebooks PQRS/eventos y los tres geoespaciales E08, E09 y E11 declaran una ruta local editable y usan datos abiertos del kit. Los notebooks históricos de Supersalud se conservan por procedencia y no se ejecutan de corrido como guía vigente. Las rutas /content, desactivación TLS, GPU y funciones de correo no forman parte de la práctica actual."
       },
       {
         "type": "p",
@@ -2596,6 +2596,10 @@
       {
         "type": "p",
         "text": "Cambiar spark.sql.shuffle.partitions de 4 a 2 y comparar el plan y el número de archivos, conservando resultados."
+      },
+      {
+        "type": "p",
+        "text": "Ruta visible del 16 y 17 de octubre: kit/Notebooks/05_Spark_lectura_y_agregacion.ipynb prepara EVA y DIVIPOLA desde CSV, convierte tipos, escribe/relee Parquet y verifica agregados Spark/DuckDB. Luego 06_Spark_joins_y_ventanas.ipynb lee sus productos, verifica cardinalidad, joins, broadcast, ranking y particiones. Salidas en kit/salidas/E07. Seguir con E08 y E09. Usar el único .venv y JDK 21 según WSL o Linux/macOS; scripts como automatización posterior."
       }
     ]
   },
@@ -2694,7 +2698,7 @@
       },
       {
         "type": "p",
-        "text": "Desarrollo reproducible: ejecutar kit/Notebooks/E08_Geoespacial.ipynb con el kernel WSL del curso. Entregar notebook ejecutado, mapa PNG y controles en kit/salidas/. GeoPandas gestiona vectores, Rasterio ráster y Matplotlib los mapas."
+        "text": "Desarrollo reproducible: ejecutar kit/Notebooks/E08_Geoespacial.ipynb con el kernel WSL del curso. Entregar notebook ejecutado, mapa PNG y controles en kit/salidas/E08/. GeoPandas gestiona vectores, Rasterio ráster y Matplotlib los mapas. Las celdas usan directamente las bibliotecas; estudiar los scripts de automatización después."
       },
       {
         "type": "p",
@@ -2797,7 +2801,7 @@
       },
       {
         "type": "p",
-        "text": "Desarrollo reproducible: ejecutar kit/Notebooks/E09_Geoespacial.ipynb con el kernel WSL del curso. Entregar notebook ejecutado, mapa PNG y controles en kit/salidas/. GeoPandas gestiona vectores, Rasterio ráster y Matplotlib los mapas."
+        "text": "Desarrollo reproducible: ejecutar kit/Notebooks/E09_Geoespacial.ipynb con el kernel WSL del curso. Entregar notebook ejecutado, mapa PNG y controles en kit/salidas/E09/. GeoPandas gestiona vectores, Rasterio ráster y Matplotlib los mapas. Las celdas usan directamente las bibliotecas; estudiar los scripts de automatización después."
       },
       {
         "type": "p",
@@ -2979,7 +2983,7 @@
       },
       {
         "type": "p",
-        "text": "Desarrollo reproducible: ejecutar kit/Notebooks/E11_Geoespacial.ipynb con el kernel WSL del curso. Entregar notebook ejecutado, mapa PNG y controles en kit/salidas/. GeoPandas gestiona vectores, Rasterio ráster y Matplotlib los mapas."
+        "text": "Desarrollo reproducible: ejecutar kit/Notebooks/E11_Geoespacial.ipynb con el kernel WSL del curso. Entregar notebook ejecutado, mapa PNG y controles en kit/salidas/E11/. GeoPandas gestiona vectores, Rasterio ráster y Matplotlib los mapas. Las celdas usan directamente las bibliotecas; estudiar los scripts de automatización después."
       },
       {
         "type": "p",
@@ -3566,6 +3570,10 @@
       {
         "type": "p",
         "text": "Preparación obligatoria antes de P04: desde kit/, con .venv activo, ejecutar python 00_datos.py --descargar pqrs y python 00_datos.py --verificar pqrs. Continuar cuando los tres cortes indiquen coincide. Los archivos existentes correctos se conservan. P03 requiere además DIVIPOLA verificada y el Parquet de P02; P04 descarga completos solo para la prueba de volumen con pqrs_descarga.py. Ver comandos y prerrequisitos en talleres/P04.md."
+      },
+      {
+        "type": "p",
+        "text": "Primero desarrollar el notebook 04, después de ejecutar P02. Leer explícitamente los productos de `kit/salidas/pandas/P02`; ejecutar cada motor en una celda con `%%time`, comprobar igualdad fuera de la medición y registrar tres repeticiones después del calentamiento. Alternar el orden de ejecución. Las salidas del notebook quedan en `kit/salidas/pandas/P04`: `benchmark_notebook.csv`, `benchmark_notebook_resumen.csv` y `conteos_verificados.csv`.\n\nEl tiempo del notebook incluye lectura, agregación y resultado en pandas, pero no arranque de proceso, exportación, ordenación ni comprobaciones. No mide RSS y no fija los mismos hilos para todos los motores. Mantener este informe separado del CLI. Revisar las consultas visibles antes de continuar con la automatización siguiente."
       }
     ]
   },
@@ -3598,7 +3606,7 @@
       },
       {
         "type": "code",
-        "text": "python 00_datos.py --descargar nasa\npython pqrs_talleres.py eventos"
+        "text": "python 00_datos.py --descargar nasa\npython 00_datos.py --verificar nasa"
       },
       {
         "type": "h",
@@ -3628,6 +3636,10 @@
       {
         "type": "p",
         "text": "La regla Python sirve para razonar sobre una traza y no reproduce toda la semántica de Structured Streaming. El archivo PQRS no tiene tiempos de evento suficientemente precisos para este ejemplo; mantener separadas la reproducción NASA y las series mensuales de reportes."
+      },
+      {
+        "type": "p",
+        "text": "Desarrollar primero la sección I01 del notebook 04: lectura JSON, DataFrame, merge, decisiones de reintento/atraso y escritura/relectura explícitas. Salidas en kit/salidas/pandas/P04. Después consultar pqrs_talleres.py eventos como automatización, con salidas en kit/salidas/pqrs."
       }
     ]
   },

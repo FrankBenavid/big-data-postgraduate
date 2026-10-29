@@ -2,7 +2,7 @@
 
 [Índice](../README.md) · [Windows/WSL](instalacion-wsl.md) · [Datos y ejecución](entorno.md) · [Notebooks](../kit/Notebooks/README.md)
 
-Esta guía prepara el mismo entorno del curso de forma nativa: Python 3.12, un único `.venv`, JDK 21, Spark y Jupyter, con las versiones de bibliotecas fijadas en el repositorio. No hace falta instalar WSL en Linux ni en macOS. Los comandos se ejecutan en la terminal con Bash o Zsh; para Fish, abrir primero una sesión Bash.
+Esta guía prepara el mismo entorno del curso de forma nativa: Python 3.12, un `.venv` base CPU, JDK 21, Spark y Jupyter, con las versiones de bibliotecas fijadas en el repositorio. No hace falta instalar WSL en Linux ni en macOS. Los comandos se ejecutan en la terminal con Bash o Zsh; para Fish, abrir primero una sesión Bash.
 
 ## 1. Identificar el equipo e instalar herramientas
 
@@ -45,7 +45,14 @@ sw_vers
 uname -m
 ```
 
-`arm64` identifica Apple Silicon; `x86_64` corresponde a Intel o a una terminal ejecutada mediante Rosetta. En Apple Silicon usar una terminal nativa y dependencias de la misma arquitectura.
+En el menú Apple → **Acerca de esta Mac**, revisar el campo **Chip** o **Procesador** y contrastarlo con `uname -m`:
+
+| Equipo | Arquitectura nativa | Homebrew habitual | JDK requerido |
+|---|---|---|---|
+| Apple Silicon M1, M2, M3 o M4 (incluidas sus variantes) | `arm64` | `/opt/homebrew` | Temurin 21 para ARM64/aarch64 |
+| Mac con procesador Intel | `x86_64` | `/usr/local` | Temurin 21 para x64 |
+
+Si el equipo tiene chip Apple pero `uname -m` devuelve `x86_64`, la terminal se está ejecutando mediante Rosetta. Cerrar la terminal, desactivar **Abrir usando Rosetta** en la información de la aplicación, si aparece, y abrirla de nuevo. En Apple Silicon usar la terminal y Homebrew nativos para mantener Python, Java y las bibliotecas en la misma arquitectura.
 
 Instalar las herramientas de línea de comandos de Apple si aún no están disponibles:
 
@@ -60,14 +67,31 @@ curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh -o
 /bin/bash /tmp/instalar-homebrew-bigdata.sh
 ```
 
-Ejecutar los comandos de **Next steps** que muestre el instalador para añadir Homebrew al PATH de la terminal. Después:
+Ejecutar los comandos de **Next steps** que muestre el instalador para añadir Homebrew al PATH de las siguientes sesiones. Para habilitarlo también en la sesión actual, ejecutar **solo uno** de estos bloques según el equipo:
+
+**Apple Silicon M1–M4:**
+
+```bash
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+**Intel:**
+
+```bash
+eval "$(/usr/local/bin/brew shellenv)"
+```
+
+Instalar Git y el **JDK Java 21 completo de Eclipse Temurin**. El comando es el mismo en ambos equipos; Homebrew selecciona el instalador de la arquitectura correspondiente:
 
 ```bash
 brew --version
-brew install git openjdk@21
+brew --prefix
+brew install git
+brew install --cask temurin@21
+/usr/libexec/java_home -V
 ```
 
-No usar `sudo brew`. La guía obtiene la ubicación del JDK con `brew --prefix`; no presupone el mismo prefijo en Intel y Apple Silicon. Un Mac antiguo puede no tener paquetes binarios compatibles: comprobar el soporte de Homebrew antes de iniciar una compilación manual. [Fórmula oficial JDK 21](https://formulae.brew.sh/formula/openjdk@21).
+No usar `sudo brew`; el instalador del paquete Temurin puede solicitar la contraseña de administrador. `java_home -V` debe listar un JDK 21. El paso 5 configura cuál se usará en el curso. Consultar el [paquete oficial Temurin 21](https://formulae.brew.sh/cask/temurin@21) y el [soporte de Homebrew](https://docs.brew.sh/Installation) para la versión de macOS del equipo.
 
 ## 2. Crear la carpeta base y clonar main
 
@@ -110,15 +134,19 @@ uv --version
 uv python install 3.12
 cd "$HOME/bigdata"
 cd big-data-postgraduate
-uv venv --python 3.12 --seed .venv
+if [ ! -e .venv ]; then
+    uv venv --python 3.12 --seed .venv
+fi
 source .venv/bin/activate
 python --version
-python -c 'import sys; print(sys.executable)'
+python -c 'import sys, platform; assert sys.version_info[:2] == (3, 12); assert sys.prefix != sys.base_prefix; print(sys.executable, platform.machine())'
 ```
 
 Debe aparecer Python `3.12.x` y un ejecutable dentro de la carpeta `.venv` de este repositorio. Si el entorno ya existe y corresponde a este sistema, activarlo sin recrearlo. No copiar un virtualenv de Windows, de otro equipo o de otra arquitectura.
 
 [Instalador de uv](https://docs.astral.sh/uv/getting-started/installation/) · [Python con uv](https://docs.astral.sh/uv/guides/install-python/) · [Entornos virtuales](https://docs.astral.sh/uv/pip/environments/).
+
+El bloque anterior conserva un entorno existente. Si la comprobación de Python falla o la carpeta pertenece a otro sistema, no instalar paquetes encima; seguir la [reconstrucción del entorno](entornos-virtuales.md#5-retomar-o-reconstruir). La única ampliación con entorno separado es GPU; las clases ordinarias siguen usando `.venv`.
 
 ## 4. Instalar bibliotecas y registrar el kernel
 
@@ -133,6 +161,8 @@ python -c "import duckdb; print(duckdb.sql('SELECT 2 + 2').fetchone())"
 ```
 
 La consulta debe devolver `(4,)` y `pip check` no debe reportar incompatibilidades. Los archivos de requisitos son la referencia de versiones. No sustituirlos por instalaciones sin versión ni usar `sudo pip`. GeoPandas, Rasterio y Matplotlib cubren los ejercicios de mapas dentro de Jupyter; no se necesita QGIS.
+
+La instalación anterior es **CPU**. En Linux, la [ampliación opcional de Polars GPU](polars-gpu.md) exige preparar primero controlador NVIDIA y CUDA Toolkit compatibles; después se utiliza `.venv-gpu`. En macOS Intel y Apple Silicon se mantiene CPU, sin instalar requisitos NVIDIA.
 
 ## 5. Configurar JDK 21 y Spark
 
@@ -160,16 +190,24 @@ Estos gestores instalan el enlace `/usr/bin/javac`. En otra distribución o con 
 
 ### Java en macOS
 
+Después de instalar `temurin@21`, seleccionar Java 21 con la herramienta de macOS. Este bloque sirve tanto para **Apple Silicon M1–M4** como para **Intel**:
+
 ```bash
+/usr/libexec/java_home -v 21
 mkdir -p "$HOME/.config/bigdata"
 cat > "$HOME/.config/bigdata/entorno.sh" <<'ENV'
-export JAVA_HOME="$(brew --prefix openjdk@21)/libexec/openjdk.jdk/Contents/Home"
+export JAVA_HOME="$(/usr/libexec/java_home -v 21)"
 export PATH="$JAVA_HOME/bin:$PATH"
 ENV
 source "$HOME/.config/bigdata/entorno.sh"
+java -version
+javac -version
+file "$JAVA_HOME/bin/java"
 ```
 
-Homebrew debe estar en el PATH antes de cargar el archivo. Esta configuración usa directamente el JDK instalado y no requiere crear enlaces en `/Library/Java/JavaVirtualMachines`.
+`java` y `javac` deben indicar **21**. `file` debe mostrar `arm64` en Apple Silicon o `x86_64` en Intel. Temurin se registra en `/Library/Java/JavaVirtualMachines`; no hace falta crear enlaces manuales. Si hay varios JDK 21, revisar `/usr/libexec/java_home -V` y, si es necesario, asignar a `JAVA_HOME` la ruta exacta de Temurin 21 de la arquitectura correcta. Si no aparece ningún JDK 21, completar la instalación antes de seguir.
+
+Si anteriormente se configuró `openjdk@21`, sustituir el valor anterior de `JAVA_HOME` en el archivo del curso por el bloque anterior y reiniciar Jupyter y su kernel. No es necesario desinstalar otros JDK para seleccionar Java 21.
 
 ### Spark en ambos sistemas
 
@@ -279,7 +317,7 @@ Si hay modificaciones propias, conservarlas antes de actualizar; no usar un rese
 | Síntoma | Comprobación |
 |---|---|
 | `brew` o `uv` no se encuentra | Completar el PATH indicado por su instalador; abrir otra terminal o cargar el archivo de entorno correspondiente. |
-| Python incorrecto o `ModuleNotFoundError` | Activar `.venv`, revisar `python -c 'import sys; print(sys.executable)'` y seleccionar el kernel del curso. |
+| Python incorrecto o `ModuleNotFoundError` | Activar `.venv`, revisar `python -c 'import sys, platform; assert sys.version_info[:2] == (3, 12); assert sys.prefix != sys.base_prefix; print(sys.executable, platform.machine())'` y seleccionar el kernel del curso. |
 | Error al instalar una rueda binaria | Revisar Python 3.12, arquitectura y versión del sistema; no mezclar paquetes Intel y ARM ni cambiar versiones fijadas sin revisar compatibilidad. |
 | `JAVA_GATEWAY_EXITED` | Revisar JDK 21, JAVA_HOME, `java -version` y `javac -version`; cargar el entorno antes de iniciar Jupyter. |
 | Spark no resuelve el nombre local del equipo | Revisar hostname/red; para la prueba local puede usarse `export SPARK_LOCAL_IP=127.0.0.1` antes de iniciar Spark. |
