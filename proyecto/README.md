@@ -1,69 +1,13 @@
-# E13 Proyecto integrador por dominio
+# Proyecto final sobre los municipios de Boyacá
 
-## Directorio de trabajo
+## Planteamiento del proyecto
 
-Ejecutar desde la terminal de **Ubuntu-26.04 en WSL**, con el repositorio clonado de `main`:
+El único ejercicio final pendiente es el [proyecto final sobre población, producción agrícola, capacidad de uso de las tierras y desempeño municipal en Boyacá](Proyecto_final_Boyaca.md). Allí encontrará el planteamiento, fuentes, hipótesis, requisitos de software, actividades, entregables, rúbrica y espacio para registrar integrantes y códigos.
 
-```bash
-cd /mnt/c/Users/TUPTC/bigdata
-cd big-data-postgraduate
-source .venv/bin/activate
-cd kit
-```
+Cada grupo debe construir un data lake con CSV en `bronze` y Parquet en `silver` y `gold`, documentar la calidad por capa y justificar su decisión de particionamiento y de uso de pandas, Polars o Spark. El proyecto e informe corresponden al 35 % del curso y la sustentación individual al 15 %, conforme al [mapa de evaluación](../docs/mapa-ejercicios.md). La rúbrica del enunciado describe la evaluación de la entrega del proyecto.
 
-Las rutas relativas `data/`, `salidas/` y los archivos de requisitos se interpretan desde `kit/`. Preparar las herramientas según [la guía WSL](../docs/instalacion-wsl.md).
+Los ejercicios y materiales anteriores permanecen disponibles como referencia; no se exige entregar proyectos alternativos ni completar ejercicios pendientes adicionales al proyecto final.
 
-[Índice del curso](../README.md) · [Evaluación](../docs/mapa-ejercicios.md) · [Calendario](../docs/calendario.md)
+[Índice del curso](../README.md) · [Proyecto final](Proyecto_final_Boyaca.md) · [Evaluación](../docs/mapa-ejercicios.md)
 
-Elegir **PQRS** o **agroambiental** y construir un producto reproducible. Las competencias comunes se acreditan con las prácticas del curso; no se exige desarrollar dos proyectos ni unir reportes de salud con muestras de suelo.
-
-## Hitos y trabajo en clase
-
-- Clase 10, 31 de octubre: integración, publicación, conciliación y reejecución; producto candidato.
-- Clase 11, 6 de noviembre: resolver hallazgos, validar y ensayar la defensa.
-- Clase 12, 7 de noviembre: entrega final y sustentación de 15 minutos por equipo, con preguntas y transición.
-
-Estos tres encuentros reúnen 1.050 minutos dentro de las 64 horas en línea. La ampliación fuera de clase es opcional.
-
-## Fuentes y preparación por ruta
-
-| Ruta | Entradas | Producto específico |
-|---|---|---|
-| PQRS | Muestras de tres cortes; completos opcionales para volumen; DIVIPOLA si se usa dimensión territorial | Series de reportes, contrato, conteos por período/territorio y cobertura de enlace |
-| Agroambiental | Fuentes ya trabajadas según pregunta; DANE/IGAC si se conserva el componente espacial | Detalle y agregado agrícola con unidades y denominador compatibles; mapa como evidencia previa cuando corresponda |
-
-Consultar [datasets](../docs/datasets.md), [descarga y entorno](../docs/entorno.md), [manifiesto PQRS](../kit/pqrs_fuentes.json) y [manifiesto agroambiental](../kit/fuentes.json). Descargar solo las fuentes necesarias. Los archivos completos y las salidas no se incorporan al repositorio.
-
-## Ejecución inicial
-
-Desde `kit/`, después de preparar las entradas y el entorno:
-
-```sh
-# Ruta PQRS con muestras
-python pqrs_talleres.py formatos
-python pqrs_talleres.py calidad
-python pqrs_talleres.py benchmark --repeticiones 3
-# Ruta agroambiental
-python talleres.py calidad
-python talleres.py consultas
-```
-
-Estos comandos son referencias de automatización; no constituyen por sí solos el pipeline integrado. Reutilizar las transformaciones conocidas en un notebook ordenado y seguir [E12](../talleres/E12.md) y el [temario del 30 y 31 de octubre](../docs/temario-30-31-octubre.md). E12 aporta las cuatro comprobaciones mínimas al producto. Las prácticas DataOps se evidencian en entradas y reglas versionadas, configuración declarada, controles, responsables de revisión y tratamiento de incidentes dentro del registro y ficha existentes. Consultar la [guía de pipelines y DataOps](../docs/pipelines-dataops.md). No añaden plataformas obligatorias ni otra ponderación. Las evidencias previas de Spark, rendimiento, soporte espacial y eventos se adjuntan por separado cuando corresponda, identificando su dominio y sus límites.
-
-## Instrucciones y aceptación
-
-1. Definir pregunta, unidad de observación, población cubierta y límites. Para PQRS, reportes no equivalen a personas únicas ni prevalencia.
-2. Registrar procedencia, tamaños, hashes, versiones y comandos. Conservar originales y verificar cardinalidad tras cada transformación.
-3. Construir recepción, validación, transformación, detalle y agregado Parquet y consulta SQL de la ruta. Comprobar conteos, conciliación por grupo y total, registro final y reejecución estable con las mismas entradas.
-4. Incorporar las evidencias previas pertinentes sin rehacer todos los talleres ni integrar todos los motores. Declarar muestra o completo en cada resultado.
-5. Presentar las evidencias metodológicas comunes sin atribuirlas al dominio equivocado. Diferenciar una reproducción de eventos de una prueba de recuperación efectivamente ejecutada.
-6. Otro equipo reconstruye controles; registrar hallazgo, corrección y resultado de la nueva ejecución.
-7. Entregar código/notebooks, informe de 8–12 páginas, ficha de gobernanza y defensa. Explicar un resultado que no se puede inferir de los datos.
-
-## Evaluación
-
-Proyecto e informe: **35 %**. Sustentación individual: **15 %**. Las prácticas previas completan el 50 % restante según el [mapa de evaluación](../docs/mapa-ejercicios.md). No hay un peso adicional por cada notebook.
-
-Dentro de cada entrega: corrección y unidades 30 %, reproducibilidad y trazabilidad 25 %, justificación 25 % y comunicación de límites 20 %. No se penaliza optar por las muestras cuando el equipo no admite los completos; sí se exige declarar el alcance y no extrapolarlo.
-
-Si el producto utiliza un mapa, adjuntar su código y controles de CRS, cardinalidad y cobertura. La integración de streaming, mapas, Iceberg estudiantil y tablero visual no es requisito mínimo. La reconstrucción de un período se aborda cuando los cuatro criterios básicos de E12 funcionen; puede completarse en la clínica.
+Como apoyo, consulte la [guía de visualización de Boyacá](../docs/guia-visualizacion-boyaca.md) y su [notebook ejecutable](../kit/Notebooks/Visualizacion_Boyaca.ipynb).
