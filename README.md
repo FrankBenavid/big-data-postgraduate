@@ -39,7 +39,7 @@ Al retomar el trabajo, activar `.venv` y cargar `~/.config/bigdata/entorno.sh` a
 | Viernes 09/10/2026 | [Arquitecturas, formatos y pipelines](clases/03-arquitecturas-y-formatos/README.md) | 18:00–22:00 | 3 h 45 min |
 | Sábado 10/10/2026 | [Calidad e integración](clases/04-calidad-y-duckdb/README.md) | 08:00–17:00 | 7 h 30 min |
 | Viernes 16/10/2026 | [Procesamiento con Spark](clases/05-ejecucion-spark/README.md) | 18:00–21:15 | 3 h |
-| Sábado 17/10/2026 | [Consultas e integración distribuida](clases/06-consultas-joins-y-ventanas/README.md) | 08:00–17:00 | 7 h 30 min |
+| Sábado 17/10/2026 | [Spark, Polars y comparación con pandas](clases/06-consultas-joins-y-ventanas/README.md) | 08:00–17:00 | 7 h 30 min |
 | Viernes 23/10/2026 | [Rendimiento y escalabilidad](clases/07-rendimiento/README.md) | 18:00–21:15 | 3 h |
 | Sábado 24/10/2026 | [Streaming de eventos](clases/08-streaming/README.md) | 08:00–17:00 | 7 h 30 min |
 | Viernes 30/10/2026 | [Integración del pipeline y publicación de datos](clases/09-analitica-y-gobernanza/README.md) | 18:00–21:15 | 3 h |
@@ -48,6 +48,8 @@ Al retomar el trabajo, activar `.venv` y cargar `~/.config/bigdata/entorno.sh` a
 | Sábado 07/11/2026 | [Sustentación y cierre contractual](clases/12-sustentacion-y-cierre/README.md) | 08:00–16:30 | 7 h |
 
 ## Guías complementarias
+
+- [Gobernanza de datos en Big Data](docs/gobernanza-datos-bigdata.md): estrategia, responsabilidades, calidad, seguridad, linaje y controles aplicados al pipeline del curso.
 
 Material de consulta y práctica para acompañar los ejercicios del curso.
 
@@ -62,6 +64,12 @@ Material de consulta y práctica para acompañar los ejercicios del curso.
 - [Guía práctica de GeoPandas y mapas de Colombia](docs/manual-geopandas.md): departamentos, ciudades, municipios y territorios especiales; resaltado de regiones y consultas de quejas por meses y edades representadas en mapas.
 - Preparación del entorno: [Windows/WSL](docs/instalacion-wsl.md) o [Linux/macOS](docs/instalacion-linux-macos.md).
 
+## Organización del repositorio
+
+Las carpetas [`clases/`](clases/) reúnen cada encuentro, su programación y las presentaciones disponibles. Las sesiones 11 y 12 aún están programadas, no realizadas. Los PPTX de las sesiones 1–8 son las versiones identificadas en el material docente disponible; su uso efectivo debe confirmarse. Para el 30 y 31 de octubre se conserva la pareja v10/v6 indicada en el índice de entregas.
+
+[`docs/`](docs/) contiene guías y calendario; [`talleres/`](talleres/) los enunciados; [`ejercicios/`](ejercicios/) las plantillas; [`kit/`](kit/) datos de muestra, notebooks y utilidades; [`soluciones/`](soluciones/) referencias; [`proyecto/`](proyecto/) el proyecto final; [`supersalud/`](supersalud/) notebooks históricos y [`historico/`](historico/) material anterior. La programación no demuestra por sí sola que cada actividad se haya completado.
+
 ## Recursos actuales
 
 - [Ejercicios de pandas y Polars](ejercicios/README.md): PD01–PD03 (cuatro horas) y PD04–PD05 (ocho horas), con enunciados y plantillas en `ejercicios/` y entrega de los notebooks resueltos en `soluciones/`.
@@ -69,14 +77,14 @@ Material de consulta y práctica para acompañar los ejercicios del curso.
 - [Índice completo de talleres](talleres/README.md), con descargas, tamaños y criterios.
 - [Kit base](kit/README.md), [manifiesto agroambiental](kit/fuentes.json), [manifiesto PQRS base](kit/pqrs_fuentes.json) y [cortes adicionales 2023–2025](kit/pqrs_fuentes_adicionales_2023_2025.json).
 - [Descargador PQRS](kit/pqrs_descarga.py) y [prácticas reproducibles PQRS](kit/pqrs_talleres.py).
-- [Proyecto y evaluación por dominio](proyecto/README.md) y [mapa de ejercicios y prerrequisitos](docs/mapa-ejercicios.md).
+- [Proyecto final sobre municipios de Boyacá](proyecto/README.md) y [mapa de ejercicios y prerrequisitos](docs/mapa-ejercicios.md).
 - [Notebooks actuales](kit/Notebooks/README.md) y [notebooks históricos Supersalud](supersalud/README.md), preservados como referencia.
 
 Los originales agroambientales suman 136,4 MB. P04 utiliza seis cortes completos PQRS de 2023–2025: 5.327.501 registros y aproximadamente 3,830 GB descomprimidos. Las tres muestras reales incluidas suman 2,235 MB. Los originales voluminosos y salidas se excluyen de Git. La instalación se comprueba durante la clase 2 y el docente ofrece una copia validada para continuidad de los talleres.
 
 ## Temario del 30 y 31 de octubre
 
-[Temario desarrollado](docs/temario-30-31-octubre.md) y [guía de pipelines y DataOps](docs/pipelines-dataops.md): primero propósito y conceptos, después esquemas industriales (ETL, ELT, Medallion y CDC), ejemplo PQRS y ejercicios guiados. La aplicación integra validación, publicación Parquet, SQL y reejecución. E12 se incorpora al candidato del proyecto; la predicción EVA queda como referencia opcional. La [solución integrada E12](soluciones/E12_solucion.ipynb) ejecuta el recorrido completo con las tres muestras PQRS.
+[Temario desarrollado](docs/temario-30-31-octubre.md) y [guía de pipelines y DataOps](docs/pipelines-dataops.md): primero propósito y conceptos, después esquemas industriales (ETL, ELT, Medallion y CDC), ejemplo PQRS y ejercicios guiados. La aplicación integra validación, publicación Parquet, SQL y reejecución. E12 y la predicción EVA quedan como material de referencia; el único ejercicio final pendiente es el [proyecto sobre Boyacá](proyecto/Proyecto_final_Boyaca.md). La [solución integrada E12](soluciones/E12_solucion.ipynb) ejecuta el recorrido completo con las tres muestras PQRS.
 
 ## Cierre del proyecto
 

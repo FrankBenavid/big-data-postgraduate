@@ -12,6 +12,8 @@ Los notebooks históricos se conservan en `supersalud/`, con su procedencia y li
 
 ## Índice y propósito
 
+Para el proyecto final: [notebook de visualización de Boyacá](Visualizacion_Boyaca.ipynb) y [guía de Matplotlib, Seaborn y mapas](../../docs/guia-visualizacion-boyaca.md).
+
 Para el 30 y 31 de octubre, consultar [pipelines y DataOps](../../docs/pipelines-dataops.md), [E12](../../talleres/E12.md) y la [solución integrada E12](../../soluciones/E12_solucion.ipynb). Esta solución reúne recepción, validación, detalle y agregado Parquet, conciliación DuckDB, publicación candidata, dos registros, comparación del contenido y auditoría. Los notebooks 02 y 03 conservan sus recorridos parciales como antecedentes.
 
 Como referencia durante las prácticas, consultar la [guía práctica de pandas](../../docs/manual-pandas.md), con ejemplos sobre los CSV de DIVIPOLA, EVA y AGROSAVIA descargados con `kit/00_datos.py`.

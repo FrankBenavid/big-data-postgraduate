@@ -1,0 +1,7 @@
+# Entorno base y herramientas de notebooks del curso
+-r requirements.txt
+-r requirements_notebooks.txt
+# Bibliotecas adicionales para esta guía
+seaborn==0.13.2
+scipy==1.15.3
+openpyxl==3.1.5
